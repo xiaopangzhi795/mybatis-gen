@@ -34,8 +34,8 @@
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://rm-2zez570bgf6ylhpd6uo.mysql.rds.aliyuncs.com/geek-config?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;serverTimezone=UTC"
-                        userId=""
-                        password="">
+                        userId="rubik"
+                        password="YTDXCMQ5b7sphr">
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
