@@ -19,11 +19,11 @@ public class QueryCodeGenerator {
     /**
      * DO 实体类的类名
      */
-    private static final String doClassName = "com.geek45.mybatisdemo.dal.model.GeekConfig";
+    private static final String doClassName = "com.geek45.infra.dal.table.model.TableConfigDO";
     /**
      * 表名
      */
-    private static final String tableName = "geek_config";
+    private static final String tableName = "gk_table_config";
 
     /**
      * where条件中需要过滤掉的字段
@@ -75,6 +75,10 @@ public class QueryCodeGenerator {
                 .append(" \",\r\n");
         genWhere(fieldInfoList, null, sb, null);
 
+        sb.append("\"</script>\"\r\n")
+                .append("})\r\n");
+        appendTag(sb);
+
         sb.append("long deleteByQuery(")
                 .append(getQueryDoName(cls))
                 .append(" query);\r\n");
@@ -92,6 +96,9 @@ public class QueryCodeGenerator {
 
         genUpdateWithNull(fieldInfoList, sb, "data");
         genWhere(fieldInfoList, null, sb, "query");
+
+        sb.append("\"</script>\"\r\n")
+                .append("})\r\n");
 
         appendTag(sb);
 
@@ -387,7 +394,7 @@ public class QueryCodeGenerator {
     }
 
     private static void appendTag(StringBuilder sb) {
-        if (null == sb || null == tag || 0 == tag.length()) {
+        if (null == sb) {
             return;
         }
         sb.append(tag)
